@@ -28,6 +28,7 @@ struct StarshipsListView: View {
 }
 
 struct RowView: View {
+    @EnvironmentObject var viewModel: ContentViewModel
     private(set) var starship: Starship
     
     var body: some View {
@@ -41,10 +42,16 @@ struct RowView: View {
             Spacer()
             
             Button(action: {
-                // TODO: add to the favourites
+                viewModel.addFavourite(starship)
             }) {
-                Image(systemName: "heart")
+                if viewModel.favourites.contains { $0.url == starship.url } {
+                    Image(systemName: "heart.fill")
+                }
+                else {
+                    Image(systemName: "heart")
+                }
             }
+            .buttonStyle(BorderlessButtonStyle())
         }
     }
 }
