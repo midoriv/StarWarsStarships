@@ -13,7 +13,9 @@ struct StarWarsStarshipsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            StarshipsListView().environmentObject(viewModel)
+            NavigationView {
+                StarshipsListView().environmentObject(viewModel)
+            }
         }
     }
 }

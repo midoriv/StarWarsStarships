@@ -11,18 +11,34 @@ struct StarshipsListView: View {
     @EnvironmentObject var viewModel: ContentViewModel
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(viewModel.starships, id: \.url) { starship in
-                    NavigationLink(destination: DetailView(starship: viewModel.getStarshipByUrl(url: starship.url))) {
-                        RowView(starship: starship)
+        Group {
+            switch viewModel.loadState {
+            case .idle, .loading:
+                ProgressView("Loading...")
+            case .loaded:
+                List {
+                    ForEach(viewModel.starships, id: \.url) { starship in
+                        NavigationLink(destination: DetailView(starship: viewModel.getStarshipByUrl(url: starship.url))) {
+                            RowView(starship: starship)
+                        }
+                    }
+                }
+            case .failed:
+                VStack(spacing: 20) {
+                    Text("Loading Failed.")
+                    Button(action: {
+                        Task {
+                            await viewModel.loadStarships()
+                        }
+                    }) {
+                        Text("Try again")
                     }
                 }
             }
-            .task {
-                await viewModel.loadStarships()
-            }
-            .navigationTitle("Starships")
+        }
+        .navigationTitle("Starships")
+        .task {
+            await viewModel.loadStarships()
         }
     }
 }
