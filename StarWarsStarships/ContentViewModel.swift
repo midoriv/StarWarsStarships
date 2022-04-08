@@ -38,7 +38,9 @@ class ContentViewModel: ObservableObject {
     }
     
     func addFavourite(_ starship: Starship) {
-        favourites.append(starship)
+        if !favourites.contains(starship) {
+            favourites.append(starship)
+        }
     }
 }
 
