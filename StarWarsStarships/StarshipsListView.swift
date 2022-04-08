@@ -15,11 +15,7 @@ struct StarshipsListView: View {
             List {
                 ForEach(viewModel.starships, id: \.url) { starship in
                     NavigationLink(destination: DetailView(starship: viewModel.getStarshipByUrl(url: starship.url))) {
-                        VStack(alignment: .leading) {
-                            Text("Name: \(starship.name)")
-                            Text("Model: \(starship.model)")
-                            Text("Manufacturer: \(starship.manufacturer)")
-                        }
+                        RowView(starship: starship)
                     }
                 }
             }
@@ -27,6 +23,28 @@ struct StarshipsListView: View {
                 await viewModel.loadStarships()
             }
             .navigationTitle("Starships")
+        }
+    }
+}
+
+struct RowView: View {
+    private(set) var starship: Starship
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Name: \(starship.name)")
+                Text("Model: \(starship.model)")
+                Text("Manufacturer: \(starship.manufacturer)")
+            }
+            
+            Spacer()
+            
+            Button(action: {
+                // TODO: add to the favourites
+            }) {
+                Image(systemName: "heart")
+            }
         }
     }
 }
