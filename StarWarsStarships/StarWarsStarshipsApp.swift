@@ -13,7 +13,7 @@ struct StarWarsStarshipsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: viewModel)
+            ContentView().environmentObject(viewModel)
         }
     }
 }
