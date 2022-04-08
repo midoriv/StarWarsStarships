@@ -11,6 +11,8 @@ class ContentViewModel: ObservableObject {
     @Published private(set) var starships = [Starship]()
     private let url = URL(string: "https://swapi.dev/api/starships/")!
     
+    // MARK: - Intents
+    
     func loadStarships() async {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -24,6 +26,15 @@ class ContentViewModel: ObservableObject {
             // handle error
         }
     }
+    
+    func getStarshipByUrl(url: String) -> Starship? {
+        for starship in starships {
+            if starship.url.elementsEqual(url) {
+                return starship
+            }
+        }
+        return nil
+    }
 }
 
 struct StarshipPage: Codable {
@@ -33,6 +44,7 @@ struct StarshipPage: Codable {
 }
 
 struct Starship: Hashable, Codable {
+    var url: String
     var name: String
     var model: String
     var manufacturer: String
