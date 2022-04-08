@@ -12,6 +12,7 @@
 		07D874C8280003860075E401 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D874C7280003860075E401 /* Assets.xcassets */; };
 		07D874CB280003860075E401 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D874CA280003860075E401 /* Preview Assets.xcassets */; };
 		07D874D2280004330075E401 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D874D1280004330075E401 /* ContentViewModel.swift */; };
+		07D874D628004CCD0075E401 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D874D528004CCD0075E401 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		07D874C7280003860075E401 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07D874CA280003860075E401 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07D874D1280004330075E401 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		07D874D528004CCD0075E401 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				07D874C7280003860075E401 /* Assets.xcassets */,
 				07D874C9280003860075E401 /* Preview Content */,
 				07D874D1280004330075E401 /* ContentViewModel.swift */,
+				07D874D528004CCD0075E401 /* DetailView.swift */,
 			);
 			path = StarWarsStarships;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D874C6280003840075E401 /* ContentView.swift in Sources */,
+				07D874D628004CCD0075E401 /* DetailView.swift in Sources */,
 				07D874C4280003840075E401 /* StarWarsStarshipsApp.swift in Sources */,
 				07D874D2280004330075E401 /* ContentViewModel.swift in Sources */,
 			);

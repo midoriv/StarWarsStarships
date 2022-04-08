@@ -11,17 +11,22 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: ContentViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.starships, id: \.self) { starship in
-                VStack(alignment: .leading) {
-                    Text("Name: \(starship.name)")
-                    Text("Model: \(starship.model)")
-                    Text("Manufacturer: \(starship.manufacturer)")
+        NavigationView {
+            List {
+                ForEach(viewModel.starships, id: \.url) { starship in
+                    NavigationLink(destination: DetailView(starship: viewModel.getStarshipByUrl(url: starship.url))) {
+                        VStack(alignment: .leading) {
+                            Text("Name: \(starship.name)")
+                            Text("Model: \(starship.model)")
+                            Text("Manufacturer: \(starship.manufacturer)")
+                        }
+                    }
                 }
             }
-        }
-        .task {
-            await viewModel.loadStarships()
+            .task {
+                await viewModel.loadStarships()
+            }
+            .navigationTitle("Starships")
         }
     }
 }
