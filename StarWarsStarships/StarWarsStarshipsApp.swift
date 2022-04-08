@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct StarWarsStarshipsApp: App {
+    var viewModel = ContentViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
         }
     }
 }
