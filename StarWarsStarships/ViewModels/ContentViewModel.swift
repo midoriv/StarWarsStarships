@@ -10,6 +10,7 @@ import Foundation
 class ContentViewModel: ObservableObject {
     @Published private(set) var starships = [Starship]()
     @Published private(set) var favourites = [Starship]()
+//    @Published private(set) var loadState: LoadState = .idle
     private let url = URL(string: "https://swapi.dev/api/starships/")!
     
     // MARK: - Intents

@@ -57,13 +57,11 @@
 		07D874C2280003840075E401 /* StarWarsStarships */ = {
 			isa = PBXGroup;
 			children = (
-				07D874D7280064F30075E401 /* models */,
-				07D874C3280003840075E401 /* StarWarsStarshipsApp.swift */,
-				07D874C5280003840075E401 /* StarshipsListView.swift */,
+				07D874DB280066050075E401 /* ViewModels */,
+				07D874DA280065D10075E401 /* Views */,
+				07D874D7280064F30075E401 /* Models */,
 				07D874C7280003860075E401 /* Assets.xcassets */,
 				07D874C9280003860075E401 /* Preview Content */,
-				07D874D1280004330075E401 /* ContentViewModel.swift */,
-				07D874D528004CCD0075E401 /* DetailView.swift */,
 			);
 			path = StarWarsStarships;
 			sourceTree = "<group>";
@@ -76,12 +74,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		07D874D7280064F30075E401 /* models */ = {
+		07D874D7280064F30075E401 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				07D874D8280065130075E401 /* Starship.swift */,
 			);
-			path = models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07D874DA280065D10075E401 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07D874C3280003840075E401 /* StarWarsStarshipsApp.swift */,
+				07D874C5280003840075E401 /* StarshipsListView.swift */,
+				07D874D528004CCD0075E401 /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07D874DB280066050075E401 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				07D874D1280004330075E401 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
