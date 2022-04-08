@@ -42,7 +42,12 @@ struct RowView: View {
             Spacer()
             
             Button(action: {
-                viewModel.addFavourite(starship)
+                if viewModel.isFavourite(starship) {
+                    viewModel.deleteFavourite(starship)
+                }
+                else {
+                    viewModel.addFavourite(starship)
+                }
             }) {
                 if viewModel.favourites.contains { $0.url == starship.url } {
                     Image(systemName: "heart.fill")

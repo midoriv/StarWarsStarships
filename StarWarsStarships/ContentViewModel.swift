@@ -37,10 +37,16 @@ class ContentViewModel: ObservableObject {
         return nil
     }
     
+    func isFavourite(_ starship: Starship) -> Bool {
+        return favourites.contains(starship)
+    }
+    
     func addFavourite(_ starship: Starship) {
-        if !favourites.contains(starship) {
-            favourites.append(starship)
-        }
+        favourites.append(starship)
+    }
+    
+    func deleteFavourite(_ starship: Starship) {
+        favourites = favourites.filter{ $0.url != starship.url }
     }
 }
 
