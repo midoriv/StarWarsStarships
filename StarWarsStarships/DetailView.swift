@@ -14,11 +14,38 @@ struct DetailView: View {
     var body: some View {
         Group {
             if let starship = starship {
-                VStack {
-                    Text("Name: \(starship.name)")
-                    Text("Model: \(starship.model)")
-                    Text("Manufacturer: \(starship.manufacturer)")
-                    Text("URL: \(starship.url)")
+                VStack(alignment: .leading) {
+                    Group {
+                        Text("Name: \(starship.name)")
+                        Text("Model: \(starship.model)")
+                        Text("Manufacturer: \(starship.manufacturer)")
+                        Text("Cost in Credits: \(starship.cost_in_credits)")
+                        Text("Length: \(starship.length)")
+                        Text("Max Atmosphering Speed: \(starship.max_atmosphering_speed)")
+                        Text("Crew: \(starship.crew)")
+                        Text("Passengers: \(starship.passengers)")
+                        Text("Cargo Capacity: \(starship.cargo_capacity)")
+                        Text("Consumables: \(starship.consumables)")
+                    }
+                    Group {
+                        Text("Hyperdrive Rating: \(starship.hyperdrive_rating)")
+                        Text("MGLT: \(starship.MGLT)")
+                        Text("Starship Class: \(starship.starship_class)")
+                        
+                        Text("Pilots:")
+                        ForEach(starship.pilots, id: \.self) { pilot in
+                            Text(pilot)
+                        }
+                        
+                        Text("Films:")
+                        ForEach(starship.films, id: \.self) { film in
+                            Text(film)
+                        }
+                        
+                        Text("Created: \(starship.created)")
+                        Text("Edited: \(starship.edited)")
+                        Text("URL: \(starship.url)")
+                    }
                 }
             }
             else {
@@ -26,6 +53,7 @@ struct DetailView: View {
             }
         }
         .navigationTitle("Starship Details")
+        .padding()
     }
 }
 
