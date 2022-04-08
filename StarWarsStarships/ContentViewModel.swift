@@ -9,6 +9,7 @@ import Foundation
 
 class ContentViewModel: ObservableObject {
     @Published private(set) var starships = [Starship]()
+    @Published private(set) var favourites = [Starship]()
     private let url = URL(string: "https://swapi.dev/api/starships/")!
     
     // MARK: - Intents
@@ -34,6 +35,10 @@ class ContentViewModel: ObservableObject {
             }
         }
         return nil
+    }
+    
+    func addFavourite(_ starship: Starship) {
+        favourites.append(starship)
     }
 }
 
