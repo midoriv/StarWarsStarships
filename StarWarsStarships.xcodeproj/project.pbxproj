@@ -13,6 +13,7 @@
 		07D874CB280003860075E401 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D874CA280003860075E401 /* Preview Assets.xcassets */; };
 		07D874D2280004330075E401 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D874D1280004330075E401 /* ContentViewModel.swift */; };
 		07D874D628004CCD0075E401 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D874D528004CCD0075E401 /* DetailView.swift */; };
+		07D874D9280065130075E401 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D874D8280065130075E401 /* Starship.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		07D874CA280003860075E401 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07D874D1280004330075E401 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		07D874D528004CCD0075E401 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		07D874D8280065130075E401 /* Starship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		07D874C2280003840075E401 /* StarWarsStarships */ = {
 			isa = PBXGroup;
 			children = (
+				07D874D7280064F30075E401 /* models */,
 				07D874C3280003840075E401 /* StarWarsStarshipsApp.swift */,
 				07D874C5280003840075E401 /* StarshipsListView.swift */,
 				07D874C7280003860075E401 /* Assets.xcassets */,
@@ -71,6 +74,14 @@
 				07D874CA280003860075E401 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		07D874D7280064F30075E401 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				07D874D8280065130075E401 /* Starship.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D874C6280003840075E401 /* StarshipsListView.swift in Sources */,
+				07D874D9280065130075E401 /* Starship.swift in Sources */,
 				07D874D628004CCD0075E401 /* DetailView.swift in Sources */,
 				07D874C4280003840075E401 /* StarWarsStarshipsApp.swift in Sources */,
 				07D874D2280004330075E401 /* ContentViewModel.swift in Sources */,
