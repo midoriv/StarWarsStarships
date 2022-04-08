@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  StarshipsListView.swift
 //  StarWarsStarships
 //
 //  Created by Midori Verdouw on 8/4/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct StarshipsListView: View {
     @EnvironmentObject var viewModel: ContentViewModel
     
     var body: some View {
@@ -33,6 +33,6 @@ struct ContentView: View {
 
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ContentView()
+//        StarshipsListView()
 //    }
 //}
