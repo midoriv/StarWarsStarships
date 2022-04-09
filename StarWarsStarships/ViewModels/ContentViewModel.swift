@@ -20,7 +20,9 @@ class ContentViewModel: ObservableObject {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            let page = try JSONDecoder().decode(StarshipPage.self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let page = try decoder.decode(StarshipPage.self, from: data)
             
             DispatchQueue.main.async { [weak self] in
                 self?.starships = page.results
@@ -28,7 +30,6 @@ class ContentViewModel: ObservableObject {
             }
         }
         catch {
-            // handle error
             DispatchQueue.main.async { [weak self] in
                 self?.loadState = .failed(error)
                 print("Error: \(error)")

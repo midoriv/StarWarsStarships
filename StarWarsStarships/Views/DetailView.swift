@@ -19,18 +19,18 @@ struct DetailView: View {
                         Text("Name: \(starship.name)")
                         Text("Model: \(starship.model)")
                         Text("Manufacturer: \(starship.manufacturer)")
-                        Text("Cost in Credits: \(starship.cost_in_credits)")
-                        Text("Length: \(starship.length)")
-                        Text("Max Atmosphering Speed: \(starship.max_atmosphering_speed)")
+                        Text("Cost in Credits: \(starship.costInCredits)")
+                        Text("Length: \(starship.length.formatted(.number.precision(.significantDigits(2))))")
+                        Text("Max Atmosphering Speed: \(starship.maxAtmospheringSpeed)")
                         Text("Crew: \(starship.crew)")
                         Text("Passengers: \(starship.passengers)")
-                        Text("Cargo Capacity: \(starship.cargo_capacity)")
+                        Text("Cargo Capacity: \(starship.cargoCapacity)")
                         Text("Consumables: \(starship.consumables)")
                     }
                     Group {
-                        Text("Hyperdrive Rating: \(starship.hyperdrive_rating)")
+                        Text("Hyperdrive Rating: \(starship.hyperdriveRating)")
                         Text("MGLT: \(starship.MGLT)")
-                        Text("Starship Class: \(starship.starship_class)")
+                        Text("Starship Class: \(starship.starshipClass)")
                         
                         Text("Pilots:")
                         ForEach(starship.pilots, id: \.self) { pilot in
