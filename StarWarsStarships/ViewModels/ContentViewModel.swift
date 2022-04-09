@@ -27,6 +27,7 @@ class ContentViewModel: ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 self?.starships = page.results
                 self?.loadState = .loaded
+                    self?.sortOption = "Name: A-Z"
             }
         }
         catch {
@@ -56,6 +57,31 @@ class ContentViewModel: ObservableObject {
     
     func deleteFavourite(_ starship: Starship) {
         favourites = favourites.filter{ $0.url != starship.url }
+    }
+    
+    // MARK: - Sort
+    
+    let sortOptions = ["Name: A-Z", "Name: Z-A", "Length: Short to Long", "Length: Long to Short"]
+    
+    @Published var sortOption = "Name: A-Z" {
+        didSet {
+            sortStarships()
+        }
+    }
+    
+    private func sortStarships() {
+        switch sortOption {
+        case "Name: A-Z":
+            starships.sort(by: { $0.name < $1.name })
+        case "Name: Z-A":
+            starships.sort(by: { $0.name > $1.name })
+        case "Length: Short to Long":
+            starships.sort(by: { $0.length < $1.length })
+        case "Length: Long to Short":
+            starships.sort(by: { $0.length > $1.length })
+        default:
+            starships.sort(by: { $0.name < $1.name })
+        }
     }
 }
 
