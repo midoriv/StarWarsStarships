@@ -9,12 +9,14 @@ import SwiftUI
 
 struct StarshipsListView: View {
     @EnvironmentObject var viewModel: ContentViewModel
+    @State private var showingSortOptions = false
     
     var body: some View {
         Group {
             switch viewModel.loadState {
             case .idle, .loading:
                 ProgressView("Loading...")
+                
             case .loaded:
                 List {
                     ForEach(viewModel.starships, id: \.url) { starship in
@@ -23,6 +25,8 @@ struct StarshipsListView: View {
                         }
                     }
                 }
+                .navigationBarItems(trailing: sortPicker)
+                
             case .failed:
                 VStack(spacing: 20) {
                     Text("Loading Failed.")
@@ -41,6 +45,21 @@ struct StarshipsListView: View {
             await viewModel.loadStarships()
         }
     }
+    
+    var sortPicker: some View {
+        HStack {
+            Image(systemName: "arrow.up.arrow.down")
+            Picker("Sort by", selection: $viewModel.sortOption) {
+                ForEach(viewModel.sortOptions, id: \.self) { option in
+                    HStack {
+                        Text(option).font(.callout)
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }
 
 struct RowView: View {
