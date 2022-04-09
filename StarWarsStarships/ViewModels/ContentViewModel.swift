@@ -16,24 +16,26 @@ class ContentViewModel: ObservableObject {
     // MARK: - Intents
     
     func loadStarships() async {
-        loadState = .loading
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let page = try decoder.decode(StarshipPage.self, from: data)
+        if starships.isEmpty {
+            loadState = .loading
             
-            DispatchQueue.main.async { [weak self] in
-                self?.starships = page.results
-                self?.loadState = .loaded
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let page = try decoder.decode(StarshipPage.self, from: data)
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.starships = page.results
                     self?.sortOption = "Name: A-Z"
+                    self?.loadState = .loaded
+                }
             }
-        }
-        catch {
-            DispatchQueue.main.async { [weak self] in
-                self?.loadState = .failed(error)
-                print("Error: \(error)")
+            catch {
+                DispatchQueue.main.async { [weak self] in
+                    self?.loadState = .failed(error)
+                    print("Error: \(error)")
+                }
             }
         }
     }
