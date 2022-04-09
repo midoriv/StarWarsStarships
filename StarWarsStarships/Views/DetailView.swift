@@ -20,7 +20,7 @@ struct DetailView: View {
                         Text("Model: \(starship.model)")
                         Text("Manufacturer: \(starship.manufacturer)")
                         Text("Cost in Credits: \(starship.costInCredits)")
-                        Text("Length: \(starship.length.formatted(.number.precision(.significantDigits(2))))")
+                        Text("Length: \(formatDouble(starship.length))")
                         Text("Max Atmosphering Speed: \(starship.maxAtmospheringSpeed)")
                         Text("Crew: \(starship.crew)")
                         Text("Passengers: \(starship.passengers)")

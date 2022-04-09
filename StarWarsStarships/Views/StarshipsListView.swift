@@ -72,6 +72,7 @@ struct RowView: View {
                 Text("Name: \(starship.name)")
                 Text("Model: \(starship.model)")
                 Text("Manufacturer: \(starship.manufacturer)")
+                Text("Length: \(formatDouble(starship.length))")
             }
             
             Spacer()
