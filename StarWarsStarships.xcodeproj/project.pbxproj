@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07B9953B2801B6180058CED0 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B9953A2801B6180058CED0 /* UtilityFunctions.swift */; };
 		07CFFAB728030036008716C1 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFFAB628030036008716C1 /* RowView.swift */; };
+		07CFFAB9280300E5008716C1 /* DetailInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFFAB8280300E5008716C1 /* DetailInfoItemView.swift */; };
 		07D874C4280003840075E401 /* StarWarsStarshipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D874C3280003840075E401 /* StarWarsStarshipsApp.swift */; };
 		07D874C6280003840075E401 /* StarshipsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D874C5280003840075E401 /* StarshipsListView.swift */; };
 		07D874C8280003860075E401 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D874C7280003860075E401 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		07B9953A2801B6180058CED0 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		07CFFAB628030036008716C1 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		07CFFAB8280300E5008716C1 /* DetailInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoItemView.swift; sourceTree = "<group>"; };
 		07D874C0280003840075E401 /* StarWarsStarships.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsStarships.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D874C3280003840075E401 /* StarWarsStarshipsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStarshipsApp.swift; sourceTree = "<group>"; };
 		07D874C5280003840075E401 /* StarshipsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsListView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				07D874C5280003840075E401 /* StarshipsListView.swift */,
 				07CFFAB628030036008716C1 /* RowView.swift */,
 				07D874D528004CCD0075E401 /* DetailView.swift */,
+				07CFFAB8280300E5008716C1 /* DetailInfoItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				07D874C6280003840075E401 /* StarshipsListView.swift in Sources */,
 				07CFFAB728030036008716C1 /* RowView.swift in Sources */,
 				07D874D9280065130075E401 /* Starship.swift in Sources */,
+				07CFFAB9280300E5008716C1 /* DetailInfoItemView.swift in Sources */,
 				07D874D628004CCD0075E401 /* DetailView.swift in Sources */,
 				07D874C4280003840075E401 /* StarWarsStarshipsApp.swift in Sources */,
 				07D874D2280004330075E401 /* ContentViewModel.swift in Sources */,
