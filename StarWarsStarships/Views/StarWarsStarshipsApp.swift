@@ -17,6 +17,7 @@ struct StarWarsStarshipsApp: App {
                 StarshipsListView()
                     .environmentObject(viewModel)
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
