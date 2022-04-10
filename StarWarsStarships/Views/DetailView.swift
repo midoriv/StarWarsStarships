@@ -7,53 +7,69 @@
 
 import SwiftUI
 
+struct DetailInfoItemView: View {
+    let title: String
+    let value: String
+    let geometry: GeometryProxy
+    
+    var body: some View {
+        
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(title).bold()
+                    Text(value)
+                }
+                Spacer()
+            }
+            .frame(width: geometry.size.width, height: 70)
+    }
+}
+
 struct DetailView: View {
     @EnvironmentObject var viewModel: ContentViewModel
     var starship: Starship?
     
     var body: some View {
-        Group {
-            if let starship = starship {
-                VStack(alignment: .leading) {
-                    Group {
-                        Text("Name: \(starship.name)")
-                        Text("Model: \(starship.model)")
-                        Text("Manufacturer: \(starship.manufacturer)")
-                        Text("Cost in Credits: \(starship.costInCredits)")
-                        Text("Length: \(formatDouble(starship.length))")
-                        Text("Max Atmosphering Speed: \(starship.maxAtmospheringSpeed)")
-                        Text("Crew: \(starship.crew)")
-                        Text("Passengers: \(starship.passengers)")
-                        Text("Cargo Capacity: \(starship.cargoCapacity)")
-                        Text("Consumables: \(starship.consumables)")
-                    }
-                    Group {
-                        Text("Hyperdrive Rating: \(starship.hyperdriveRating)")
-                        Text("MGLT: \(starship.MGLT)")
-                        Text("Starship Class: \(starship.starshipClass)")
-                        
-                        Text("Pilots:")
-                        ForEach(starship.pilots, id: \.self) { pilot in
-                            Text(pilot)
+        if let starship = starship {
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack() {
+                        VStack() {
+                            DetailInfoItemView(title: "Starship Class", value: starship.starshipClass, geometry: geometry)
+                            DetailInfoItemView(title: "Model", value: starship.model, geometry: geometry)
+                            DetailInfoItemView(title: "Manufacturer", value: starship.manufacturer, geometry: geometry)
+                            DetailInfoItemView(title: "Cost in Credits", value: starship.costInCredits, geometry: geometry)
                         }
                         
-                        Text("Films:")
-                        ForEach(starship.films, id: \.self) { film in
-                            Text(film)
+                        VStack() {
+                            DetailInfoItemView(title: "Length", value: formatDouble(starship.length), geometry: geometry)
+                            DetailInfoItemView(title: "Max Atmosphering Speed", value: starship.maxAtmospheringSpeed, geometry: geometry)
+                            DetailInfoItemView(title: "Crew", value: starship.crew, geometry: geometry)
+                            DetailInfoItemView(title: "Passengers", value: starship.passengers, geometry: geometry)
+                            DetailInfoItemView(title: "Cargo Capacity", value: starship.cargoCapacity, geometry: geometry)
+                            DetailInfoItemView(title: "Consumables", value: starship.consumables, geometry: geometry)
+                            DetailInfoItemView(title: "Hyperdrive Rating", value: starship.hyperdriveRating, geometry: geometry)
+                            DetailInfoItemView(title: "MGLT", value: starship.MGLT, geometry: geometry)
                         }
+
                         
-                        Text("Created: \(starship.created)")
-                        Text("Edited: \(starship.edited)")
-                        Text("URL: \(starship.url)")
+//                            VStack(alignment: .leading) {
+//                                DetailInfoItemView(title: "Created", value: starship.created)
+//                                DetailInfoItemView(title: "Edited", value: starship.edited)
+//                                DetailInfoItemView(title: "URL", value: starship.url)
+//                            }
+
                     }
                 }
-            }
-            else {
-                Text("Failed to obtain the starship.")
+                .frame(maxWidth: .infinity)
+                .navigationTitle(starship.name)
             }
         }
-        .navigationTitle("Starship Details")
-        .padding()
+        else {
+            Text("Failed to obtain the starship.")
+                .navigationTitle("Starship Details")
+        }
+        
     }
 }
 

@@ -19,10 +19,11 @@ struct StarshipsListView: View {
                 
             case .loaded:
                 List {
-                    ForEach(viewModel.starships, id: \.url) { starship in
+                    ForEach(viewModel.starships, id: \.url) { starship in     
                         NavigationLink(destination: DetailView(starship: viewModel.getStarshipByUrl(url: starship.url))) {
                             RowView(starship: starship)
                         }
+                        .listRowSeparator(.hidden)
                     }
                 }
                 .navigationBarItems(trailing: sortPicker)
@@ -67,32 +68,40 @@ struct RowView: View {
     private(set) var starship: Starship
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("Name: \(starship.name)")
-                Text("Model: \(starship.model)")
-                Text("Manufacturer: \(starship.manufacturer)")
-                Text("Length: \(formatDouble(starship.length))")
+        VStack {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(starship.name).font(.headline).bold()
+                    
+                    Text(starship.manufacturer).fontWeight(.light).foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    Text("Length: \(formatDouble(starship.length))").font(.callout)
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    if viewModel.isFavourite(starship) {
+                        viewModel.deleteFavourite(starship)
+                    }
+                    else {
+                        viewModel.addFavourite(starship)
+                    }
+                }) {
+                    if viewModel.favourites.contains { $0.url == starship.url } {
+                        Image(systemName: "heart.fill")
+                    }
+                    else {
+                        Image(systemName: "heart")
+                    }
+                }
+                .buttonStyle(BorderlessButtonStyle())
             }
+            .padding(0)
             
-            Spacer()
-            
-            Button(action: {
-                if viewModel.isFavourite(starship) {
-                    viewModel.deleteFavourite(starship)
-                }
-                else {
-                    viewModel.addFavourite(starship)
-                }
-            }) {
-                if viewModel.favourites.contains { $0.url == starship.url } {
-                    Image(systemName: "heart.fill")
-                }
-                else {
-                    Image(systemName: "heart")
-                }
-            }
-            .buttonStyle(BorderlessButtonStyle())
+            Divider()
         }
     }
 }
