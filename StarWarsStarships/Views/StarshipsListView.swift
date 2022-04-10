@@ -20,7 +20,7 @@ struct StarshipsListView: View {
             case .loaded:
                 List {
                     ForEach(viewModel.starships, id: \.url) { starship in     
-                        NavigationLink(destination: DetailView(starship: viewModel.getStarshipByUrl(url: starship.url))) {
+                        NavigationLink(destination: DetailView(starship: starship)) {
                             RowView(starship: starship)
                         }
                         .listRowSeparator(.hidden)

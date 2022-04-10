@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum LoadState {
+    case idle
+    case loading
+    case failed(Error)
+    case loaded
+}
+
 class ContentViewModel: ObservableObject {
     @Published private(set) var starships = [Starship]()
     @Published private(set) var favourites = [Starship]()
@@ -40,14 +47,7 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    func getStarshipByUrl(url: String) -> Starship? {
-        for starship in starships {
-            if starship.url.elementsEqual(url) {
-                return starship
-            }
-        }
-        return nil
-    }
+    // MARK: - Favourites
     
     func isFavourite(_ starship: Starship) -> Bool {
         return favourites.contains(starship)
@@ -86,11 +86,3 @@ class ContentViewModel: ObservableObject {
         }
     }
 }
-
-enum LoadState {
-    case idle
-    case loading
-    case failed(Error)
-    case loaded
-}
-
