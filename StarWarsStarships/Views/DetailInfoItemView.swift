@@ -14,7 +14,8 @@ struct DetailInfoItemView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(title).bold()
+                Text(title)
+                    .bold()
                 Text(value)
             }
             Spacer()

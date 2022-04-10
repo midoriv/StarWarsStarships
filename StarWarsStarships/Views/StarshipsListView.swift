@@ -53,7 +53,8 @@ struct StarshipsListView: View {
             Picker("Sort by", selection: $viewModel.sortOption) {
                 ForEach(viewModel.sortOptions, id: \.self) { option in
                     HStack {
-                        Text(option).font(.callout)
+                        Text(option)
+                            .font(.callout)
                     }
                 }
             }
